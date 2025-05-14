@@ -9,7 +9,7 @@ http.createServer((req, res) => {
 
 
     res.writeHead(200, {'Content-Type': 'text/html'});
-    fs.readFile('./http-form.html', (err, data) => {
+    fs.readFile('./http-index.html', (err, data) => {
       if(err) throw err;
 
       res.write(data);

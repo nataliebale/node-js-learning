@@ -1,22 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+
 let app = express();
 
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
 
-const port =const express = require('express');
+app.use('/assets', express.static(__dirname + '/public'))
 
-let app = express();
-
-const port = process.env.PORT || 9999;
-
-app.use('/css', express.static(__dirname + '/public'))
-
-app.get('/css', (req, res, next) => {
+app.get((req, res, next) => {
   console.log('Middleware');
   next();
 })
 
+app.post('/post', (req, res) => {
+  console.log('form is working', req.body);
+})
 
 app.listen(9999);
 
